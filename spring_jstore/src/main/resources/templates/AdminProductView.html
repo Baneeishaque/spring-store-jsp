@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{include/head::head}"></head>
+
+<body>
+    <header th:replace="~{include/header::header}"></header>
+    <div class="site-section">
+        <div class="container">
+            <div class="row mb-5">
+                <form class="col-md-12" method="post" action="/ViewProduct" th:object="${product}" enctype="multipart/form-data">
+                    <div class="site-blocks-table">
+                        <table class="table table-bordered">
+                            <thead>
+
+                            <tr>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-total">Description</th>
+                                <th class="product-edit">Edit</th>
+                                <th class="product-remove">Remove</th>
+                            </tr>
+                            </thead>
+                            <div><a th:href="@{addProduct}">Add Product</a></div>
+                            <tbody>
+                            <tr th:each="pro:${product}">
+                                <td class="product-thumbnail" >
+                                    <img th:src="@{'/image/' + ${pro.productid}}" alt="Image" class="img-fluid">
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black"><span th:text="${pro.name}"></span></h2>
+                                </td>
+                                <td th:text="${pro.price}"></td>
+                                <td th:text="${pro.description}"></td>
+                                <td><a th:href="@{/editProduct(id=${pro.productid})}" class="btn btn-primary height-auto btn-sm">+</a></td>
+                                <td><a th:href="@{/deleteProduct(id=${pro.productid})}" class="btn btn-primary height-auto btn-sm">X</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="~{include/footer::footer}"></footer>
+</body>
+</html>
