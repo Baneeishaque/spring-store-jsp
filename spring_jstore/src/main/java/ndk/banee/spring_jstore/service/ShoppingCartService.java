@@ -8,6 +8,7 @@ import ndk.banee.spring_jstore.mapper.productMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
 @Service
 public class ShoppingCartService {
 
-    private Map<product, Integer> products = new HashMap<>();
+    private final Map<product, Integer> products = new HashMap<>();
 
     @Autowired
     private ShoppingCartMapper shoppingCartMapper;
@@ -38,5 +39,9 @@ public class ShoppingCartService {
     public List<product> productInfo(Integer id) {
         List<product> prods = prdMapper.getProductsByCustomerId(id);
         return prods;
+    }
+
+    public BigDecimal totalPrice(Integer id) {
+        return shoppingCartMapper.totalPrice(id);
     }
 }

@@ -20,14 +20,16 @@ public class WishListController {
     private WishListService wishListService;
 
     @GetMapping("wishlist")
-    public String wishlist(Model model, product Product){
-        List<wishlist> wishListProducts = wishListService.findAllProducts();
-        model.addAttribute("wishlist", wishListProducts);
-        return "whishlist";
+    public String wishlist(Model model, HttpSession session) {
+        customer user = (customer) session.getAttribute("user");
+        List<product> products = wishListService.wishListProduct(user.getCustomeriid());
+        model.addAttribute("products", products);
+        return "wishlist";
     }
 
+
     @GetMapping("/saveToWishlist")
-    public String addToWishlist (@RequestParam("prodId") Integer prodId, HttpSession session) {
+    public String addToWishlist(@RequestParam("prodId") Integer prodId, HttpSession session) {
         wishlist wishList = new wishlist();
         wishList.setProductid(prodId);
         customer user = (customer) session.getAttribute("user");

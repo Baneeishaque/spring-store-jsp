@@ -10,9 +10,9 @@
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/?serverTimezone=Asia/Chongqing#/ecommerceone?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/?serverTimezone=Asia/Chongqing#/spring_jstore?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false"
                         userId="root"
-                        password="1234">
+                        password="">
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
@@ -34,24 +34,24 @@
         </javaClientGenerator>
 
 
-<!--        <table schema="ecommerceone" tableName="a" domainObjectName="a">-->
+<!--        <table schema="spring_jstore" tableName="a" domainObjectName="a">-->
 <!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="address" domainObjectName="address">-->
+<!--        <table schema="spring_jstore" tableName="address" domainObjectName="address">-->
 <!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="admin" domainObjectName="admin">-->
+<!--        <table schema="spring_jstore" tableName="admin" domainObjectName="admin">-->
 <!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="customer" domainObjectName="customer">-->
+<!--        <table schema="spring_jstore" tableName="customer" domainObjectName="customer">-->
 <!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="orders" domainObjectName="orders">-->
+<!--        <table schema="spring_jstore" tableName="orders" domainObjectName="orders">-->
 <!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="payment" domainObjectName="payment">-->
+<!--        <table schema="spring_jstore" tableName="payment" domainObjectName="payment">-->
 <!--        </table>-->
-        <table schema="ecommerceone" tableName="product" domainObjectName="product">
+<!--        <table schema="spring_jstore" tableName="product" domainObjectName="product">-->
+<!--        </table>-->
+<!--        <table schema="spring_jstore" tableName="shipping" domainObjectName="shipping">-->
+<!--        </table>-->
+        <table schema="spring_jstore" tableName="shoppingcart" domainObjectName="ShoppingCart">
         </table>
-<!--        <table schema="ecommerceone" tableName="shipping" domainObjectName="shipping">-->
-<!--        </table>-->
-<!--        <table schema="ecommerceone" tableName="shoppingcart" domainObjectName="ShoppingCart">-->
-<!--        </table>-->
 
 
     </context>

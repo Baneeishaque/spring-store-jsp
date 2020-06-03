@@ -403,6 +403,10 @@
   </update>
 
   <select id="getProductsByCustomerId" resultMap="BaseResultMap">
-   SELECT * FROM product p INNER JOIN ShoppingCart sc ON p.productid = sc.productid WHERE sc.customeriid = #{customerid}
+   SELECT * FROM product p INNER JOIN ShoppingCart sc ON p.productid = sc.productid WHERE sc.customeriid = #{customeriid}
+  </select>
+
+  <select id="getProductsToWishList" resultMap="BaseResultMap">
+   SELECT * FROM product p INNER JOIN wishlist wl ON p.productid = wl.productid WHERE wl.customeriid = #{customeriid}
   </select>
 </mapper>

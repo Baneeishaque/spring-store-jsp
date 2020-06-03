@@ -2,8 +2,9 @@ package ndk.banee.spring_jstore.mapper;
 
 import ndk.banee.spring_jstore.domain.address;
 import ndk.banee.spring_jstore.domain.addressExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface addressMapper {
     /**

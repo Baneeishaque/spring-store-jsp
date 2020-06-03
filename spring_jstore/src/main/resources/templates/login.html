@@ -4,59 +4,62 @@
 <link rel="stylesheet" th:href="@{/css/my.css}">
 
 <body>
-    <header th:replace="~{include/header::header}"></header>
-    <div class="section-gap-top bg-white aos-init aos-animate">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center">
-                    <h1 class="mb-3">User Login</h1>
-                </div>
+<header th:replace="~{include/header::header}"></header>
+<div class="section-gap-top bg-white aos-init aos-animate">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <h1 class="mb-3">User Login</h1>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 p-5 form-wrap">
-                    <form action="/accessCustomer" method="POST" th:object="${customer}">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 p-5 form-wrap">
+                <form action="/accessCustomer" method="POST" th:object="${customer}">
 
-                        <div class="form-group">
-                            <label for="name" class="label">Username</label>
-                            <input name="username" th:value="${username}" type="text" class="form-control" id="name" placeholder="Username"
-                                   required>
-                        </div>
+                    <div class="form-group">
+                        <label class="label" for="name">Username</label>
+                        <input class="form-control" id="name" name="username" placeholder="Username" required
+                               th:value="${username}"
+                               type="text">
+                    </div>
 
-                        <div class="form-group mb-4">
-                            <label for="pwd" class="label">Password</label>
-                            <input name="passwords" th:value="${passwords}" type="password" class="form-control" id="pwd" placeholder="Password"
-                                   required>
-                        </div>
-                        <div class="justify-content-center d-flex">
-                            <div class="options">
-                                <a th:href="@{#forgot password}">
+                    <div class="form-group mb-4">
+                        <label class="label" for="pwd">Password</label>
+                        <input class="form-control" id="pwd" name="passwords" placeholder="Password" required
+                               th:value="${passwords}"
+                               type="password">
+                    </div>
+                    <div class="justify-content-center d-flex">
+                        <div class="options">
+                            <a th:href="@{#forgot password}">
                                     <span>
                                         Forgot Password
                                     </span>
-                                </a>
-                            </div>
-                            <div class="options">
-                                <a th:href="@{signup}">
+                            </a>
+                        </div>
+                        <div class="options">
+                            <a th:href="@{signup}">
                                     <span>
                                         Sign Up
                                     </span>
-                                </a>
-                            </div>
+                            </a>
                         </div>
-                        <div class="mt-4 text-center">
-                            <div class="form-group">
-                                <input name="validate" type="submit" value="Login" id="login"
-                                       class="btn btn-primary py-3 px-5">
-                            </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <div class="form-group">
+                            <input class="btn btn-primary py-3 px-5" id="login" name="validate" type="submit"
+                                   value="Login">
                         </div>
-                        <div class="mt-4 text-center">
-                            <div class="col-md-12 mb-0"><a href="http://localhost:8080/adminLogin">Admin Login</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Admin Page</strong></div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <div class="col-md-12 mb-0"><a href="http://localhost:8080/adminLogin">Admin Login</a> <span
+                                class="mx-2 mb-0">/</span> <strong class="text-black">Admin Page</strong></div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <footer th:replace="~{include/footer::footer}"></footer>
+</div>
+<footer th:replace="~{include/footer::footer}"></footer>
 </body>
 </html>

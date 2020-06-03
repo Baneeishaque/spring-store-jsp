@@ -2,8 +2,9 @@ package ndk.banee.spring_jstore.mapper;
 
 import ndk.banee.spring_jstore.domain.product;
 import ndk.banee.spring_jstore.domain.productExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface productMapper {
     /**
@@ -118,5 +119,7 @@ public interface productMapper {
      */
     int updateByPrimaryKey(product record);
 
-    List<product> getProductsByCustomerId(@Param("customerid") Integer customerid);
+    List<product> getProductsByCustomerId(@Param("customeriid") Integer id);
+
+    List<product> getProductsToWishList(@Param("customeriid") Integer id);
 }

@@ -1,5 +1,6 @@
 package ndk.banee.spring_jstore.service;
 
+
 import ndk.banee.spring_jstore.domain.admin;
 import ndk.banee.spring_jstore.domain.customer;
 import ndk.banee.spring_jstore.mapper.adminMapper;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
     @Autowired
     private customerMapper customermapper;
-    private adminMapper adminmapper;
+    private final adminMapper adminmapper;
 
     public CustomerService(adminMapper adminmapper) {
         this.adminmapper = adminmapper;
@@ -28,13 +29,13 @@ public class CustomerService {
         }
     }
 
-    public customer accessCustomer( String username, String password) {
+    public customer accessCustomer(String username, String password) {
 
         return customermapper.findCustomer(username, password);
     }
 
     public admin adminLogin(String adminname, String adminpassword) {
 
-        return adminmapper.findAdmin(adminname,adminpassword);
+        return adminmapper.findAdmin(adminname, adminpassword);
     }
 }

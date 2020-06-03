@@ -2,8 +2,9 @@ package ndk.banee.spring_jstore.mapper;
 
 import ndk.banee.spring_jstore.domain.orders;
 import ndk.banee.spring_jstore.domain.ordersExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ordersMapper {
     /**

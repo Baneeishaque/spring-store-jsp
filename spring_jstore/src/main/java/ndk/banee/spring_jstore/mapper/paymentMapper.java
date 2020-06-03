@@ -1,9 +1,11 @@
 package ndk.banee.spring_jstore.mapper;
 
+
 import ndk.banee.spring_jstore.domain.payment;
 import ndk.banee.spring_jstore.domain.paymentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface paymentMapper {
     /**

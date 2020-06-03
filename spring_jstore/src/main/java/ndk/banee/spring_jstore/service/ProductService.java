@@ -1,4 +1,5 @@
 package ndk.banee.spring_jstore.service;
+
 import ndk.banee.spring_jstore.domain.product;
 import ndk.banee.spring_jstore.domain.productExample;
 import ndk.banee.spring_jstore.mapper.productMapper;
@@ -20,9 +21,9 @@ public class ProductService {
         return productmapper.selectByPrimaryKey(id);
     }
 
-    public byte[] getImage(Integer id){
+    public byte[] getImage(Integer id) {
         product prd = this.getById(id);
-        if(prd != null) {
+        if (prd != null) {
             return prd.getImage();
         }
         return new byte[]{};

@@ -1,11 +1,12 @@
 package ndk.banee.spring_jstore.mapper;
 
+
 import ndk.banee.spring_jstore.domain.admin;
 import ndk.banee.spring_jstore.domain.adminExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface adminMapper {
     /**

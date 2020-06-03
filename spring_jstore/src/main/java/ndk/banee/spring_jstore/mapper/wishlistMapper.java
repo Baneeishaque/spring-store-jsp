@@ -1,9 +1,12 @@
 package ndk.banee.spring_jstore.mapper;
 
+
 import ndk.banee.spring_jstore.domain.wishlist;
 import ndk.banee.spring_jstore.domain.wishlistExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface wishlistMapper {
     /**
@@ -93,4 +96,9 @@ public interface wishlistMapper {
      * @mbg.generated Mon Jun 01 21:28:37 CST 2020
      */
     int updateByPrimaryKey(wishlist record);
+
+    @Select("Select * from wishlist wl LEFT JOIN product p ON p.productid = wl.productid WHERE customeriid = #{customeriid}")
+    List<wishlist> productInfo(@Param("customeriid") Integer id, @Param("productid") Integer pid);
+
+    wishlist getWishListById(@Param("customeriid") Integer id);
 }

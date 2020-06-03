@@ -1,5 +1,6 @@
 package ndk.banee.spring_jstore.controller;
 
+
 import ndk.banee.spring_jstore.domain.admin;
 import ndk.banee.spring_jstore.domain.customer;
 import ndk.banee.spring_jstore.service.CustomerService;
@@ -28,22 +29,23 @@ public class CustomerController {
     @PostMapping("accessCustomer")
     public String loginUser(customer customer, BindingResult bind, HttpSession session) {
         customer cust = customerService.accessCustomer(customer.getUsername(), customer.getPasswords());
-        if (cust == null){
-            bind.rejectValue("username","Customer not registered");
+        if (cust == null) {
+            bind.rejectValue("username", "Customer not registered");
         }
-        if (bind.hasErrors()){
+        if (bind.hasErrors()) {
             return "login";
         }
         session.setAttribute("user", cust);
         return "index";
     }
+
     @PostMapping("adminLogin")
     public String adminlogin(admin admin, BindingResult bind) {
         admin adn = customerService.adminLogin(admin.getAdminname(), admin.getAdminpassword());
-        if (adn == null){
-            bind.rejectValue("Adminname","Admin not registered");
+        if (adn == null) {
+            bind.rejectValue("Adminname", "Admin not registered");
         }
-        if (bind.hasErrors()){
+        if (bind.hasErrors()) {
             return "adminLogin";
         }
         return "redirect:/ViewProduct";

@@ -4,48 +4,63 @@
 
 <body>
 <header th:replace="~{include/header::header}"></header>
-    <div class="site-section">
-        <div class="container">
-            <div class="row mb-5">
-                <form class="col-md-12" method="post" action="/wishlist" th:object="${wishlist}" enctype="multipart/form-data">
-                    <div class="site-blocks-table">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th class="product-thumbnail">Image</th>
-                                <th class="product-name">Product</th>
-                                <th class="product-price">Price</th>
-                                <th class="product-total">Description</th>
-                                <th class="product-edit">Edit</th>
-                                <th class="product-remove">Remove</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="pro:${wishlist}">
-                                <td class="product-thumbnail" >
-                                    <img th:src="${pro.productid}}" alt="Image" class="img-fluid">
-                                </td>
-                                <td class="product-name">
-                                    <h2 class="h5 text-black"><span th:text="${pro.wishlistid}"></span></h2>
-                                </td>
-                                <td th:text="${pro.wishlistid}"></td>
-                                <td th:text="${pro.customeriid}"></td>
-                                <td><a th:href="@{/editProduct(id=${pro.productid})}" class="btn btn-primary height-auto btn-sm">+</a></td>
-                                <td><a th:href="@{/deleteProduct(id=${pro.productid})}" class="btn btn-primary height-auto btn-sm">X</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-6 mb-3 mb-md-0">
-                        <button class="btn btn-primary btn-sm btn-block">Continue Shopping</button>
-                    </div>
-                    <div class="col-md-6">
-                        <button class="btn btn-outline-primary btn-sm btn-block">Go To Checkout</button>
-                    </div>
-                </form>
-            </div>
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <form action="/wishlist" class="col-md-12" enctype="multipart/form-data" method="post"
+                  th:object="${wishlist}">
+                <div class="site-blocks-table">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="product-thumbnail">Image</th>
+                            <th class="product-name">Product</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-total">Description</th>
+                            <th class="product-edit">Edit</th>
+                            <th class="product-remove">Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pro:${prods}">
+                            <td class="product-thumbnail">
+                                <img alt="Image" class="img-fluid" th:src="*{'/image/' + pro.productid}">
+                            </td>
+                            <td class="product-name">
+                                <h2 class="h5 text-black" th:text="${pro.name}"></h2>
+                            </td>
+                            <td th:text="${pro.price}"></td>
+                            <td>
+                                <div class="input-group mb-3" style="max-width: 120px;">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
+                                        </button>
+                                    </div>
+                                    <input aria-describedby="button-addon1" aria-label="Example text with button addon" class="form-control text-center" placeholder=""
+                                           type="text" value="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td th:text="${pro.description}"></td>
+                            <td><a class="btn btn-primary height-auto btn-sm" th:href="@{/removeProduct(id=${cartid})}"
+                                   th:object="${ShoppingCart}">X</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <button class="btn btn-primary btn-sm btn-block">Continue Shopping</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-outline-primary btn-sm btn-block">Go To Checkout</button>
+                </div>
+            </form>
         </div>
     </div>
-    <footer th:replace="~{include/footer::footer}"></footer>
+</div>
+<footer th:replace="~{include/footer::footer}"></footer>
 </body>
 </html>
