@@ -40,7 +40,8 @@
                         <div class="d-flex">
                             <div class="dropdown mr-1 ml-md-auto">
                                 <button aria-expanded="false" aria-haspopup="true"
-                                        class="btn btn-white btn-sm dropdown-toggle px-4" data-toggle="dropdown" id="dropdownMenuOffset"
+                                        class="btn btn-white btn-sm dropdown-toggle px-4" data-toggle="dropdown"
+                                        id="dropdownMenuOffset"
                                         type="button">
                                     Latest
                                 </button>
@@ -68,7 +69,8 @@
                 </div>
                 <div class="row mb-5">
                     <div class="col-lg-6 col-md-6 item-entry mb-4" th:each="pro:${product}">
-                        <a class="product-item md-height bg-gray d-block" th:href="@{/shopSingle(prodID=${pro.getProductid()})}"
+                        <a class="product-item md-height bg-gray d-block"
+                           th:href="@{/shopSingle(prodID=${pro.getProductid()})}"
                            th:object="${product} ">
                             <img alt="Image" class="img-fluid" th:src="${'/image/' + pro.productid}">
                         </a>
@@ -77,7 +79,8 @@
                         <a class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary d-flex"
                            th:href="@{/addToCart(prodId=${pro.getProductid()}, price=${pro.getPrice()})}"
                            th:object="${ShoppingCart}"><span>Add to Cart</span></a>
-                        <a class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary d-flex" th:href="@{/saveToWishlist(prodId=${pro.getProductid()})}"
+                        <a class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary d-flex"
+                           th:href="@{/saveToWishlist(prodId=${pro.getProductid()})}"
                            th:object="${wishlist}"><span>Wish List</span></a>
                     </div>
                 </div>
@@ -99,7 +102,8 @@
                     <div class="mb-4">
                         <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
                         <div class="border-primary" id="slider-range"></div>
-                        <label for="amount"></label><input class="form-control border-0 pl-0 bg-white" disabled="" id="amount"
+                        <label for="amount"></label><input class="form-control border-0 pl-0 bg-white" disabled=""
+                                                           id="amount"
                                                            name="text" type="text"/>
                     </div>
 
