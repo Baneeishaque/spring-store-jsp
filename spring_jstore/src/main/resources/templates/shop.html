@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{include/head::head}"></head>
 <body>
-<header th:replace="~{include/header::header}"></header>
+<th:block th:replace="~{include/header::header}"/>
 
 <div class="site-blocks-cover inner-page">
     <div class="container">
@@ -24,7 +24,7 @@
 <div class="custom-border-bottom py-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-0"><a th:href="@{index.html}">Home</a> <span class="mx-2 mb-0">/</span> <strong
+            <div class="col-md-12 mb-0"><a th:href="@{index}">Home</a> <span class="mx-2 mb-0">/</span> <strong
                     class="text-black">Shop</strong></div>
         </div>
     </div>
@@ -76,9 +76,11 @@
                         </a>
                         <h2 class="item-title"><a href="#"><span th:utext="${pro.name}"></span></a></h2>
                         <strong class="item-price"><span th:utext="${pro.price}"></span></strong>
+                        <!--/*@thymesVar id="ShoppingCart" type="ndk.banee.spring_jstore.domain.ShoppingCart"*/-->
                         <a class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary d-flex"
                            th:href="@{/addToCart(prodId=${pro.getProductid()}, price=${pro.getPrice()})}"
                            th:object="${ShoppingCart}"><span>Add to Cart</span></a>
+                        <!--/*@thymesVar id="wishlist" type="ndk.banee.spring_jstore.domain.wishlist"*/-->
                         <a class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary d-flex"
                            th:href="@{/saveToWishlist(prodId=${pro.getProductid()})}"
                            th:object="${wishlist}"><span>Wish List</span></a>
