@@ -24,6 +24,9 @@ public class CartController {
     @GetMapping("cart")
     public String cart(Model model, HttpSession session) {
         customer user = (customer) session.getAttribute("user");
+        if (user == null) {
+            return "login";
+        }
         List<product> prods = shoppingCartService.productInfo(user.getCustomeriid());
         model.addAttribute("prods", prods);
         model.addAttribute("totalPrice", shoppingCartService.totalPrice(user.getCustomeriid()));

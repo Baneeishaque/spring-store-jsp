@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="SpringJStoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="SpringJStoreApplication index" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="spring_jstore" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="ndk.banee.spring_jstore.SpringJStoreApplication" />
     <option name="ALTERNATIVE_JRE_PATH" />

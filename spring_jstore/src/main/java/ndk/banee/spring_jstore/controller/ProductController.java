@@ -26,13 +26,13 @@ public class ProductController {
         return "/AdminProductView";
     }
 
-    @RequestMapping("shopSingle")
-    public String shopSingle(@RequestParam("id") Integer id) {
-
-        productService.getById(id);
-
-        return "shop-single";
-    }
+//    @RequestMapping("shopSingle")
+//    public String shopSingle(@RequestParam("id") Integer id) {
+//
+//        productService.getById(id);
+//
+//        return "shop-single";
+//    }
 
     @GetMapping("shop")
     public String listProduct(Model model) {

@@ -47,7 +47,8 @@
                                 </div>
                             </td>
                             <td th:text="${pro.description}"></td>
-                            <td><a class="btn btn-primary height-auto btn-sm" th:href="@{/removeProduct(id=${cartid})}"
+                            <td><a class="btn btn-primary height-auto btn-sm"
+                                   th:href="@{/removeProduct(id=${cartid})}"
                                    th:object="${ShoppingCart}">X</a></td>
                         </tr>
                         </tbody>

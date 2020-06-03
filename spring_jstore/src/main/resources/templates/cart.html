@@ -3,7 +3,7 @@
 <head th:replace="~{include/head::head}"></head>
 <body>
 
-<header class="main-header" th:replace="~{include/header::header}"></header>
+<th:block th:replace="~{include/header::header}"/>
 
 <div class="site-section">
     <div class="container">
@@ -46,7 +46,8 @@
                                 </div>
                             </td>
                             <td th:text="${pro.description}"></td>
-                            <td><a class="btn btn-primary height-auto btn-sm" th:href="@{/removeProduct(id=${cartid})}"
+                            <td><a class="btn btn-primary height-auto btn-sm"
+                                   th:href="@{/removeProduct(id=${cartid})}"
                                    th:object="${ShoppingCart}">X</a></td>
                         </tr>
                         </tbody>
@@ -97,7 +98,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <button class="btn btn-primary btn-lg btn-block"
-                                        onclick="window.location='checkout.html'">Proceed To Checkout
+                                        onclick="window.location='checkout'">Proceed To Checkout
                                 </button>
                             </div>
                         </div>
